@@ -18,11 +18,8 @@ const limiter = rateLimit({
 app.use(limiter);
 
 app.use(morgan('dev'));
+app.use('/api', routes);
 
-//define a route handler for the default home page
-app.get('/api', (req, res) => {
-  res.send('server working');
-});
 
 //starting the express server
 app.listen(port, () => {

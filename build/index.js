@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var morgan_1 = __importDefault(require("morgan"));
 var express_rate_limit_1 = __importDefault(require("express-rate-limit"));
+var index_1 = __importDefault(require("./routes/index"));
 var app = (0, express_1.default)();
 var port = 3000;
 var limiter = (0, express_rate_limit_1.default)({
@@ -18,10 +19,7 @@ var limiter = (0, express_rate_limit_1.default)({
 // Apply the rate limiting middleware to all requests
 app.use(limiter);
 app.use((0, morgan_1.default)('dev'));
-//define a route handler for the default home page
-app.get('/api', function (req, res) {
-    res.send('server working');
-});
+app.use('/api', index_1.default);
 //starting the express server
 app.listen(port, function () {
     console.log("server has started at http://localhost:".concat(port));

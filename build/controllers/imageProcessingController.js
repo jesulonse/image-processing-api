@@ -66,7 +66,7 @@ var fs_1 = __importStar(require("fs"));
 var imageProcessingFunc_1 = __importDefault(require("../utility/imageProcessingFunc"));
 var path_1 = __importDefault(require("path"));
 var imageProcessing = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var filename, width, height, imagePath, resizedImagePath, resizedImage, error_1;
+    var filename, width, height, resizedImagePath, resizedImage, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -75,7 +75,7 @@ var imageProcessing = function (req, res) { return __awaiter(void 0, void 0, voi
                 filename = req.query.filename;
                 width = Number(req.query.width);
                 height = Number(req.query.height);
-                imagePath = "".concat(process.cwd(), "/images/").concat(req.query.filename, ".jpg");
+                //const imagePath = `${process.cwd()}/images/${req.query.filename}.jpg`;
                 if (!filename || !width || !height) {
                     res.status(404).send('Incorrect image parameters');
                     return [2 /*return*/];

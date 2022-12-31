@@ -11,7 +11,7 @@ const imageProcessing = async (req: Request, res: Response): Promise<void> => {
     const width = Number(req.query.width) as unknown as number;
     const height = Number(req.query.height) as unknown as number;
 
-    const imagePath = `${process.cwd()}/images/${req.query.filename}.jpg`;
+    //const imagePath = `${process.cwd()}/images/${req.query.filename}.jpg`;
     if (!filename || !width || !height) {
       res.status(404).send('Incorrect image parameters');
       return;
